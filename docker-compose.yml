@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  db-postgres-rg:
+    image: postgres:alpine
+    ports:
+      - "5435:5432"
+    container_name: db-postgres-rg
+    restart: always
+    volumes:
+      - ./banco-de-dados-galdino:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: galdino
+      POSTGRES_PASSWORD: galdino
+volumes:
+  banco-de-dados-galdino:
