@@ -5,6 +5,7 @@ import https from "https";
 import http from "http";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
+import empresaRoutes from "./routes/empresa.routes";
 import { requestInterceptor } from "./utils/requestInterceptor";
 
 
@@ -18,6 +19,7 @@ app.all("*", requestInterceptor);
 
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
+app.use("/empresa", empresaRoutes);
 
 
 const runServer = (port: number, server: http.Server) => {
