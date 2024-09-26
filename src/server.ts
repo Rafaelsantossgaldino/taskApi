@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors";
 import https from "https";
 import http from "http";
+import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
 import { requestInterceptor } from "./utils/requestInterceptor";
 
 
@@ -13,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.all("*", requestInterceptor);
+
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
 
 
 const runServer = (port: number, server: http.Server) => {
